@@ -4,6 +4,10 @@ import "./styles/index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
+import sayHello from "./gRPC";
+
+sayHello();
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
