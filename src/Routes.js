@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import StartView from "./views/Start";
-import SignUpView from "./views/AddUser";
+import SignUpView from "./views/Signup";
 
 const Routes = () => {
   return (
