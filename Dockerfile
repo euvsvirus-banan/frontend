@@ -14,17 +14,11 @@ RUN curl -L -o /bin/protoc-gen-grpc-web https://github.com/grpc/grpc-web/release
 
 WORKDIR /usr/src/app
 
-RUN ls /usr/src/app
-
 COPY ./package*.json ./
 
 RUN npm install --quiet
 
 COPY . .
-
-WORKDIR /usr/src/app/src/gRPC
-
-
 
 WORKDIR /usr/src/app
 
