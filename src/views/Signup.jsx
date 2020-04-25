@@ -74,43 +74,19 @@ const SignUpView = () => {
         <label>Address</label>
         <input
           type="text"
-          onChange={({ target: { value } }) => {
-            setState({
-              ...state,
-              address: {
-                ...state.address,
-                address: value,
-              },
-            });
-          }}
+          onChange={updateAddressField("address")}
           value={state.address.address}
         />
         <label>City</label>
         <input
           type="text"
-          onChange={({ target: { value } }) => {
-            setState({
-              ...state,
-              address: {
-                ...state.address,
-                city: value,
-              },
-            });
-          }}
+          onChange={updateAddressField("city")}
           value={state.address.city}
         />
         <label>Postcode</label>
         <input
           type="text"
-          onChange={({ target: { value } }) => {
-            setState({
-              ...state,
-              address: {
-                ...state.address,
-                postcode: value,
-              },
-            });
-          }}
+          onChange={updateAddressField("postcode")}
           value={state.address.postcode}
         />
         <label>Country</label>
