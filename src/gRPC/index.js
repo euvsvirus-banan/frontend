@@ -4,8 +4,8 @@ const envoyURI = "http://localhost:8080";
 
 const client = new UsersRPCClient(envoyURI);
 
-const sayHello = () => {
-  // Make some request
+const fooRequest = () => {
+  // Make some request here
 };
 
-export default sayHello;
+export default fooRequest;
