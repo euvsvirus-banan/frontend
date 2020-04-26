@@ -1,17 +1,12 @@
 import React from "react";
 import View from "../components/View";
+import Feed from "../components/Feed";
 
 const StartView = () => (
   <div>
     <View>
-      <h2>This should be the landing page</h2>
-      <p>
-        Cheese and wine macaroni cheese cheese slices. Danish fontina cheese
-        slices taleggio fromage frais fromage frais cauliflower cheese queso
-        blue castello. Bavarian bergkase feta red leicester stilton caerphilly
-        cream cheese pecorino fondue. Dolcelatte pecorino bocconcini emmental
-        red leicester.
-      </p>
+      <h1>Recent Posts</h1>
+      <Feed />
     </View>
   </div>
 );

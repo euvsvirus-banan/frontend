@@ -11,7 +11,7 @@ const grpc = {};
 grpc.web = require("grpc-web");
 
 const proto = {};
-proto.userspb = require("./service_pb.js");
+proto.userspb = require("./users_pb.js");
 
 /**
  * @param {string} hostname

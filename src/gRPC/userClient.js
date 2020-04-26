@@ -1,5 +1,5 @@
-const { AddUserRequest, User } = require("./service_pb");
-const { UsersRPCClient } = require("./service_grpc_web_pb");
+const { AddUserRequest, User } = require("./users_pb");
+const { UsersRPCClient } = require("./users_grpc_web_pb");
 
 const envoyURI = "http://localhost:8080";
 

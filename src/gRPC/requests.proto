@@ -1,0 +1,148 @@
+syntax = "proto3";
+
+package requestspb;
+
+message Request {
+	enum State {
+		WAITING = 0;
+		ACCEPTED = 1;
+		COMPLETED = 2;
+		CANCELLED = 3;
+	}
+
+	message Answer {
+		string volunteer_id = 1;
+		string comment = 2;
+	}
+
+	string title = 1;
+	string body = 2;
+	string requester_id = 3;
+	string volunteer_id = 4;
+	string postcode = 5;
+	string creation_date = 6;
+	State state = 7;
+	repeated string skills = 8;
+	repeated Answer answers = 9;
+}
+
+message GetVersionRequest {
+}
+
+message GetVersionResponse {
+	string project = 1;
+	string version = 2;
+	string build_date = 3;
+	string git_revision = 4;
+	string go_version = 5;
+}
+
+message AddRequestRequest {
+	Request request = 1;
+}
+
+message AddRequestResponse {
+	string request_id = 1;
+}
+
+message DeleteRequestRequest {
+	string request_id = 1;
+}
+
+message DeleteRequestResponse {
+}
+
+message UpdateRequestRequest {
+	string request_id = 1;
+	Request request = 2;
+}
+
+message UpdateRequestResponse {
+	Request request = 1;
+}
+
+message GetRequestsRequest {
+}
+
+message GetRequestsResponse {
+	string request_id = 1;
+	Request request = 2;
+}
+
+message GetRequestByIDRequest {
+	string request_id = 1;
+}
+
+message GetRequestByIDResponse {
+	Request request = 1;
+}
+
+message SearchRequestsByPostcodeRequest {
+	string postcode = 1;
+}
+
+message SearchRequestsByPostcodeResponse {
+	string request_id = 1;
+	Request request = 2;
+}
+
+message AnswerRequestRequest {
+	string request_id = 1;
+	Request.Answer answer = 2;
+}
+
+message AnswerRequestResponse {
+}
+
+message AcceptHelpRequest {
+	string request_id = 1;
+	string volunteer_id = 2;
+}
+
+message AcceptHelpResponse {
+}
+
+message CompleteHelpRequest {
+	string request_id = 1;
+}
+
+message CompleteHelpResponse {
+}
+
+message CancelHelpRequest {
+	string request_id = 1;
+}
+
+message CancelHelpResponse {
+}
+
+service RequestsRPC {
+	// Returns software version and build details
+	rpc GetVersion(GetVersionRequest) returns (GetVersionResponse);
+
+	// Adds a new request
+	rpc AddRequest(AddRequestRequest) returns (AddRequestResponse);
+
+	// Deletes an existing request
+	rpc DeleteRequest(DeleteRequestRequest) returns (DeleteRequestResponse);
+
+	// Updates an existing request, method requires passing all the information about the request as
+	// the object is simply replaced
+	rpc UpdateRequest(UpdateRequestRequest) returns (UpdateRequestResponse);
+
+	// Returns all the users in the system
+	rpc GetRequests(GetRequestsRequest) returns (stream GetRequestsResponse);
+
+	rpc GetRequestByID(GetRequestByIDRequest) returns (GetRequestByIDResponse);
+
+	rpc SearchRequestsByPostcode(SearchRequestsByPostcodeRequest) returns (stream SearchRequestsByPostcodeResponse);
+
+	rpc AnswerRequest(AnswerRequestRequest) returns (AnswerRequestResponse);
+
+	rpc AcceptHelp(AcceptHelpRequest) returns (AcceptHelpResponse);
+
+	rpc CompleteHelp(CompleteHelpRequest) returns (CompleteHelpResponse);
+
+	rpc CancelHelp(CancelHelpRequest) returns (CancelHelpResponse);
+}
+
