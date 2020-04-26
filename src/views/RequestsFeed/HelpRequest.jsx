@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Button from "../Button";
-import Post from "../Post";
+import Button from "../../components/Button";
+import Post from "../../components/Post";
+import Popup from "../../components/Popup";
 
 const Wrapper = styled.div`
   padding: 2rem;
@@ -17,11 +18,13 @@ const Wrapper = styled.div`
   }
 
   .contentWrapper {
-    margin-left: 40px;
+    padding-left: 40px;
+    max-width: calc(100% - 200px);
   }
 `;
 
 const HelpRequest = ({ title, body, img }) => {
+  const [openPopup, setOpenPopup] = useState(false);
   return (
     <Post>
       <Wrapper>
@@ -33,9 +36,22 @@ const HelpRequest = ({ title, body, img }) => {
           <h2>{title}</h2>
           <h3>{new Date().toDateString()}</h3>
           <p>{body}</p>
-          <Button title="Offer help" />
+          <Button
+            title="Offer help"
+            onClick={(event) => {
+              console.log(event);
+              setOpenPopup(true);
+            }}
+          />
         </div>
       </Wrapper>
+      {openPopup ? (
+        <Popup
+          onConfirm={() => {
+            setOpenPopup(false);
+          }}
+        />
+      ) : null}
     </Post>
   );
 };

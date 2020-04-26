@@ -29,13 +29,15 @@ const Offer = () => {
   return (
     <div>
       <div>
-        <h3>Bill Gates</h3>
-        <FontAwesomeIcon icon={faStar} style={{ color: "#feca57" }} />
-        <FontAwesomeIcon icon={faStar} style={{ color: "#feca57" }} />
-        <FontAwesomeIcon icon={faStar} style={{ color: "#feca57" }} />
-        <FontAwesomeIcon icon={faStar} style={{ color: "#e6e6e6" }} />
-        <FontAwesomeIcon icon={faStar} style={{ color: "#e6e6e6" }} />
-        <p>Bill Gates have offered to help with your groceries!</p>
+        <h3>Jane Doe</h3>
+        <div>
+          <FontAwesomeIcon icon={faStar} style={{ color: "#feca57" }} />
+          <FontAwesomeIcon icon={faStar} style={{ color: "#feca57" }} />
+          <FontAwesomeIcon icon={faStar} style={{ color: "#feca57" }} />
+          <FontAwesomeIcon icon={faStar} style={{ color: "#e6e6e6" }} />
+          <FontAwesomeIcon icon={faStar} style={{ color: "#e6e6e6" }} />
+        </div>
+        <p>Jane Doe have offered to help with your groceries!</p>
         <div
           style={{
             display: "flex",

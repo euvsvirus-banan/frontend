@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "../Button";
-import Post from "../Post";
+import Button from "../../../components/Button";
+import Post from "../../../components/Post";
 
 const Wrapper = styled.div`
   padding: 2rem;

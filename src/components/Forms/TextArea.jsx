@@ -7,6 +7,7 @@ const TextArea = styled.textarea`
   border-radius: 4px;
   padding: 5px;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  min-height: 200px;
 `;
 
 export default TextArea;

@@ -10,11 +10,10 @@ const StyledButton = styled.button`
   font-size: 1rem;
   font-weight: 700;
   background: linear-gradient(to right, #00d2d3, #1dd1a1);
-  margin-right: 20px;
 
   ${(props) => {
     if (props.theme == "red") {
-      return "background: linear-gradient(to right, #ff6b6b, #ee5253);";
+      return "background: linear-gradient(to right, #ff6b6b, #ee5253); margin-left: 20px;";
     }
   }}
 
@@ -33,10 +32,10 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({ title, onChange, theme }) => {
+const Button = ({ title, onClick, theme }) => {
   return (
     <div>
-      <StyledButton onChange={onChange} theme={theme}>
+      <StyledButton onClick={onClick} theme={theme}>
         {title}
       </StyledButton>
     </div>
