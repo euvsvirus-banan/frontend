@@ -1,4 +1,4 @@
-// source: service.proto
+// source: users.proto
 /**
  * @fileoverview
  * @enhanceable
@@ -6,7 +6,6 @@
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
-
 // GENERATED CODE -- DO NOT EDIT!
 /* eslint-disable */
 

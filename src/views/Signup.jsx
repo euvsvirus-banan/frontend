@@ -1,18 +1,11 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import Form from "../components/Forms/Form";
+import Button from "../components/Button";
 import userClient from "../gRPC/userClient";
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 700px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
+import View from "../components/View";
+import Input from "../components/Forms/Input";
+import Label from "../components/Forms/Label";
+import Post from "../components/Post";
 
 const initialState = {
   name: "John Doe",
@@ -56,59 +49,59 @@ const SignUpView = () => {
   };
 
   return (
-    <Wrapper>
-      <h1>Sign Up</h1>
-      <Form>
-        <label>Name</label>
-        <input
-          type="text"
-          onChange={({ target: { value } }) => {
-            setState({ ...state, name: value });
-          }}
-          value={state.name}
-        />
-      </Form>
+    <View>
+      <Post>
+        <h1>Sign Up</h1>
+        <Form>
+          <Label>Name</Label>
+          <Input
+            type="text"
+            onChange={({ target: { value } }) => {
+              setState({ ...state, name: value });
+            }}
+            value={state.name}
+          />
+        </Form>
 
-      <h2>Address</h2>
-      <Form>
-        <label>Address</label>
-        <input
-          type="text"
-          onChange={updateAddressField("address")}
-          value={state.address.address}
-        />
-        <label>City</label>
-        <input
-          type="text"
-          onChange={updateAddressField("city")}
-          value={state.address.city}
-        />
-        <label>Postcode</label>
-        <input
-          type="text"
-          onChange={updateAddressField("postcode")}
-          value={state.address.postcode}
-        />
-        <label>Country</label>
-        <input
-          type="text"
-          onChange={updateAddressField("country")}
-          value={state.address.country}
-        />
-      </Form>
+        <Form>
+          <Label>Address</Label>
+          <Input
+            type="text"
+            onChange={updateAddressField("address")}
+            value={state.address.address}
+          />
+          <Label>City</Label>
+          <Input
+            type="text"
+            onChange={updateAddressField("city")}
+            value={state.address.city}
+          />
+          <Label>Postcode</Label>
+          <Input
+            type="text"
+            onChange={updateAddressField("postcode")}
+            value={state.address.postcode}
+          />
+          <Label>Country</Label>
+          <Input
+            type="text"
+            onChange={updateAddressField("country")}
+            value={state.address.country}
+          />
+        </Form>
 
-      <h2>Contact details</h2>
+        <Form>
+          <Label>Email</Label>
+          <Input
+            type="text"
+            onChange={updateContactField("email")}
+            value={state.contact.email}
+          />
+        </Form>
 
-      <Form>
-        <label>Email</label>
-        <input
-          type="text"
-          onChange={updateContactField("email")}
-          value={state.contact.email}
-        />
-      </Form>
-      <button onClick={addUser}>Sign up</button>
-    </Wrapper>
+        <Button title="Sign up" onChange={addUser} />
+      </Post>
+    </View>
   );
 };
 
